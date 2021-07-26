@@ -1,5 +1,5 @@
 import * as userAction from '../actions/users';
-import { IUser } from '../../models/users.model';
+import { IUser } from '@shared/models/users.model';
 
 export interface State {
   count: number;

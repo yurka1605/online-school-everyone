@@ -1,4 +1,4 @@
-import { IUser } from '../../models/users.model';
+import { IUser } from '@shared/models/users.model';
 import { Action } from "@ngrx/store";
 
 

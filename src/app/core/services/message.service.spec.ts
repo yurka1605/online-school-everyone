@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { MessageTypes } from '../app.constant';
+import { MessageTypes } from '@app/app.constant';
 
 import { MessageService } from './message.service';
 

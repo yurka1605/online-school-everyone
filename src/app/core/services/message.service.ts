@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MessageTypes } from '../app.constant';
+import { MessageTypes } from '@app/app.constant';
 
 @Injectable({
   providedIn: 'root'

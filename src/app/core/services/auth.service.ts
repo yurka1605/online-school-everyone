@@ -9,6 +9,6 @@ export class AuthService {
   constructor() { }
 
   getAuthorizationToken(): string {
-    return '';
+    return 'token';
   }
 }

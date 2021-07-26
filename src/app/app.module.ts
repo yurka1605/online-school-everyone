@@ -9,15 +9,17 @@ import { StoreModule } from '@ngrx/store';
 
 // Modules
 import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from '@shared/shared.module';
+import { CoreModule } from '@core/core.module';
 
 // Components
-import { AppComponent } from './app.component';
+import { AppComponent } from '@app/app.component';
 
 // Interceptors
-import { HttpInterceptorProviders } from './http-interceptors';
+import { HttpInterceptorProviders } from '@app/http-interceptors';
 
 // Reducers
-import { reducers, metaReducers } from './store/reducers';
+import { reducers, metaReducers } from '@app/store/reducers';
 
 // Services
 
@@ -31,6 +33,8 @@ import { reducers, metaReducers } from './store/reducers';
     HttpClientModule,
     StoreModule.forRoot(reducers, {metaReducers}),
     EffectsModule.forRoot([]),
+    CoreModule,
+    SharedModule,
   ],
   providers: [
     ...HttpInterceptorProviders,
