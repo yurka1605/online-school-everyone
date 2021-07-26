@@ -1,9 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable, throwError } from 'rxjs';
-import { catchError, map, mergeMap } from 'rxjs/operators';
-import { DeleteUser, AddUser } from './store/actions/users';
+import { Observable } from 'rxjs';
+import { AddUser } from './store/actions/users';
 import { selectUsersCount, State } from './store/reducers';
 
 @Component({
@@ -11,16 +9,16 @@ import { selectUsersCount, State } from './store/reducers';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'online-school-everyone';
-  userCount$: Observable<number>;
+  userCount$: Observable<number> = this.store.select(selectUsersCount);
 
   constructor(
-    private http: HttpClient,
     // eslint-disable-next-line ngrx/no-typed-global-store
     private store: Store<State>,
-  ) {
-    this.userCount$ = this.store.select(selectUsersCount);
+  ) {}
+
+  ngOnInit(): void {
     this.store.dispatch(
       new AddUser({
         id: `1`,

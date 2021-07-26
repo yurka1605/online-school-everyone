@@ -1,12 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        StoreModule.forRoot({}),
       ],
       declarations: [
         AppComponent
@@ -26,10 +28,25 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('online-school-everyone');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('online-school-everyone app is running!');
+  describe('#OnInit', () => {
+    it('should be one user count', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      app.ngOnInit();
+      app.userCount$.subscribe(count => {
+        expect(count === 1).toBeTruthy();
+      });
+    });
+  });
+
+  describe('#onClick', () => {
+    it('should be add user', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.componentInstance;
+      app.onClick();
+      app.userCount$.subscribe(count => {
+        expect(count === 2).toBeTruthy();
+      });
+    });
   });
 });

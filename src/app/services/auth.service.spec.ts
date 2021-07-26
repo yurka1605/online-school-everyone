@@ -13,4 +13,11 @@ describe('AuthServiceService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  describe('#getAuthorizationToken', () => {
+    it('should be true', () => {
+      const token = service.getAuthorizationToken();
+      expect(token === '').toBeTruthy();
+    });
+  });
 });
