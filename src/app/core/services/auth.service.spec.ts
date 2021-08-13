@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { AuthService } from './auth.service';
 
-describe('AuthServiceService', () => {
+describe('AuthService', () => {
   let service: AuthService;
 
   beforeEach(() => {
@@ -17,7 +17,7 @@ describe('AuthServiceService', () => {
   describe('#getAuthorizationToken', () => {
     it('should be true', () => {
       const token = service.getAuthorizationToken();
-      expect(token === '').toBeTruthy();
+      expect(token).toEqual('token');
     });
   });
 });

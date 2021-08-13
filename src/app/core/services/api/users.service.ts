@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { EMPTY, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { API_URLS } from './../../app.constant';
+import { API_URLS } from '@app/app.constant';
 
 interface INewUser {
   login: string;
@@ -28,10 +28,7 @@ export class UsersService {
   getUsers(): Observable<INewUser[]> {
     return this.http.get<INewUser[]>(API_URLS.GET_USERS)
       .pipe(
-        catchError((err) => {
-          console.log(err);
-          return EMPTY;
-        })
+        catchError(err => EMPTY)
       );
   }
 }

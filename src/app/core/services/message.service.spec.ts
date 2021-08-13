@@ -40,13 +40,13 @@ describe('MessageService', () => {
   describe('#showMessage', () => {
     it('should be show empty message', () => {
       service.showMessage();
-      expect(service.type === MessageTypes.Warning && service.message === '').toBeTruthy();
+      expect(service.type).toEqual(MessageTypes.Warning);
     });
 
     it('should be show message "Handler missed"', () => {
+      service.type = 'newType' as MessageTypes;
       service.showMessage();
-      service.type = '' as MessageTypes;
-      expect(service.message === 'Handler missed').toBeTruthy();
+      expect(service.message).toEqual('Handler missed');
     });
   });
 });

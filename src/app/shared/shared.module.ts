@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
-
-
+import { DragAndDropComponent } from './components/drag-and-drop/drag-and-drop.component';
 @NgModule({
-  declarations: [],
+  declarations: [
+    DragAndDropComponent,
+  ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    DragDropModule,
+  ],
+  exports: [
+    DragAndDropComponent,
+  ],
 })
 export class SharedModule { }

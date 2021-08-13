@@ -9,7 +9,6 @@ import { StoreModule } from '@ngrx/store';
 
 // Modules
 import { AppRoutingModule } from './app-routing.module';
-import { SharedModule } from '@shared/shared.module';
 import { CoreModule } from '@core/core.module';
 
 // Components
@@ -24,9 +23,7 @@ import { reducers, metaReducers } from '@app/store/reducers';
 // Services
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -34,7 +31,6 @@ import { reducers, metaReducers } from '@app/store/reducers';
     StoreModule.forRoot(reducers, {metaReducers}),
     EffectsModule.forRoot([]),
     CoreModule,
-    SharedModule,
   ],
   providers: [
     ...HttpInterceptorProviders,
