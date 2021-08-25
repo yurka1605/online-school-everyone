@@ -2,15 +2,30 @@
   "name": "online-school-everyone",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "test:cov": "ng test --code-coverage",
-    "lint": "ng lint"
+    "prepare": "npm run check-engines && npm run build:ui-lib",
+    "check-engines": "check-node-version --package -p",
+    "lint": "npm run lint:app && npm run lint:landing && npm run lint:docs && npm run lint:ui-lib",
+    "start:app": "npm run prepare && ng serve",
+    "build:app": "ng build app",
+    "test:app": "ng test app",
+    "lint:app": "ng lint app",
+    "start:docs": "npm run prepare && ng serve docs",
+    "build:docs": "ng build docs",
+    "test:docs": "ng test docs",
+    "lint:docs": "ng lint docs",
+    "start:landing": "npm run prepare && ng serve landing",
+    "build:landing": "ng build landing",
+    "test:landing": "ng test landing",
+    "lint:landing": "ng lint landing",
+    "watch:ui-lib": "ng build ui-lib --watch --configuration development",
+    "build:ui-lib": "ng build ui-lib",
+    "lint:ui-lib": "ng lint ui-lib"
   },
   "private": true,
+  "engines": {
+    "node": ">=12.0.0",
+    "npm": "^6.14.0 || ^7.6.0"
+  },
   "dependencies": {
     "@angular/animations": "~12.1.1",
     "@angular/cdk": "^12.1.4",
@@ -24,6 +39,8 @@
     "@angular/router": "~12.1.1",
     "@ngrx/effects": "^12.2.0",
     "@ngrx/store": "^12.2.0",
+    "angular-in-memory-web-api": "^0.11.0",
+    "check-node-version": "^4.1.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
@@ -42,13 +59,15 @@
     "@typescript-eslint/eslint-plugin": "4.23.0",
     "@typescript-eslint/parser": "4.23.0",
     "eslint": "^7.26.0",
+    "eslint-plugin-ngrx": "^1.0.0",
     "jasmine-core": "~3.7.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
-    "typescript": "~4.3.2",
-    "eslint-plugin-ngrx": "^1.0.0"
+    "ng-packagr": "^12.1.0",
+    "parallelshell": "^3.0.2",
+    "typescript": "~4.3.5"
   }
 }

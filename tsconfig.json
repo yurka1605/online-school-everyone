@@ -21,12 +21,25 @@
       "dom"
     ],
     "paths": {
-      "@app/*": ["src/app/*"],
-      "@about/*": ["src/app/about/*"],
-      "@auth/*": ["src/app/auth/*"],
-      "@core/*": ["src/app/core/*"],
-      "@shared/*": ["src/app/shared/*"],
-      "@store/*": ["src/app/store/*"],
+      // application
+      "@app/*": ["projects/app/src/app/*"],
+      "@app-about/*": ["projects/app/src/app/about/*"],
+      "@app-auth/*": ["projects/app/src/app/auth/*"],
+      "@app-core/*": ["projects/app/src/app/core/*"],
+      "@app-shared/*": ["projects/app/src/app/shared/*"],
+      "@app-store/*": ["projects/app/src/app/store/*"],
+
+      // landing
+      "@landing/*": ["projects/landing/src/app/*"],
+
+      // doc
+      "@docs/*": ["projects/docs/src/app/*"],
+
+      // ui-lib
+      "@ui-lib": [
+        "dist/ui-lib/ui-lib",
+        "dist/ui-lib"
+      ],
     }
   },
   "angularCompilerOptions": {
@@ -34,5 +47,5 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  },
+  }
 }

@@ -1,7 +1,7 @@
 {
-  "root": true,
+  "extends": "../../.eslintrc.json",
   "ignorePatterns": [
-    "projects/**/*"
+    "!**/*"
   ],
   "overrides": [
     {
@@ -10,22 +10,17 @@
       ],
       "parserOptions": {
         "project": [
-          "tsconfig.json"
+          "projects/docs/tsconfig.app.json",
+          "projects/docs/tsconfig.spec.json"
         ],
         "createDefaultProgram": true
       },
-      "extends": [
-        "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates",
-        "plugin:ngrx/recommended",
-        "plugin:ngrx/recommended"
-      ],
       "rules": {
         "@angular-eslint/directive-selector": [
           "error",
           {
             "type": "attribute",
-            "prefix": "app",
+            "prefix": "docs",
             "style": "camelCase"
           }
         ],
@@ -33,27 +28,17 @@
           "error",
           {
             "type": "element",
-            "prefix": "app",
+            "prefix": "docs",
             "style": "kebab-case"
           }
         ]
-      },
-      "plugins": [
-        "ngrx",
-        "ngrx"
-      ]
+      }
     },
     {
       "files": [
         "*.html"
       ],
-      "extends": [
-        "eslint:recommended",
-        "plugin:@angular-eslint/template/recommended"
-      ],
-      "rules": {
-        "modules": true
-      }
+      "rules": {}
     }
   ]
 }
