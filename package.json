@@ -2,14 +2,15 @@
   "name": "online-school-everyone",
   "version": "0.0.0",
   "scripts": {
-    "prepare": "npm run check-engines && npm run build:ui-lib",
+    "prepare": "npm-run-all -s check-engines build:ui-lib",
     "check-engines": "check-node-version --package -p",
-    "lint": "npm run lint:app && npm run lint:landing && npm run lint:docs && npm run lint:ui-lib",
-    "start:app": "npm run prepare && ng serve",
+    "lint": "npm-run-all -s lint:app lint:landing lint:docs lint:ui-lib",
+    "start": "npm-run-all -s prepare start:app",
+    "start:app": "ng serve app",
     "build:app": "ng build app",
     "test:app": "ng test app",
     "lint:app": "ng lint app",
-    "start:docs": "npm run prepare && ng serve docs",
+    "start:docs": "npm-run-all -s prepare && ng serve docs",
     "build:docs": "ng build docs",
     "test:docs": "ng test docs",
     "lint:docs": "ng lint docs",
@@ -17,9 +18,13 @@
     "build:landing": "ng build landing",
     "test:landing": "ng test landing",
     "lint:landing": "ng lint landing",
-    "watch:ui-lib": "ng build ui-lib --watch --configuration development",
-    "build:ui-lib": "ng build ui-lib",
-    "lint:ui-lib": "ng lint ui-lib"
+    "watch:ui-lib-all": "npm-run-all --parallel watch-scss-bundle:ui-lib watch:ui-lib",
+    "watch:ui-lib": "ng build ui-lib --configuration development --watch",
+    "build:ui-lib": "npm run clean:ui-lib && npm run build-scss-bundle:ui-lib && ng build ui-lib",
+    "clean:ui-lib": "rimraf dist/ui-lib",
+    "lint:ui-lib": "ng lint ui-lib",
+    "watch-scss-bundle:ui-lib": "scss-bundle --config ./projects/ui-lib/scss-bundle.config.json --watch",
+    "build-scss-bundle:ui-lib": "scss-bundle --config ./projects/ui-lib/scss-bundle.config.json"
   },
   "private": true,
   "engines": {
@@ -67,6 +72,7 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "ng-packagr": "^12.1.0",
+    "npm-run-all": "^4.1.5",
     "parallelshell": "^3.0.2",
     "typescript": "~4.3.5"
   }

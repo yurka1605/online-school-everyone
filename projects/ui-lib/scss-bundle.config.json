@@ -1,0 +1,8 @@
+{
+  "bundlerOptions": {
+    "entryFile": "./projects/ui-lib/assets/styles/styles.scss",
+    "rootDir": "./projects/ui-lib/assets/styles",
+    "outFile": "./projects/ui-lib/assets/main.styles.scss",
+    "logLevel": "silent"
+  }
+}

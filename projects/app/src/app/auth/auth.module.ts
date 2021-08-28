@@ -15,7 +15,7 @@ import { RouterModule } from '@angular/router';
       { path: '', component: AuthComponent }
     ]),
   ],
-  exports: [AuthComponent],
+  exports: [],
   providers: [],
 })
 export class AuthModule { }

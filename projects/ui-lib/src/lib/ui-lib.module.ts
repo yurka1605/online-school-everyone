@@ -1,22 +1,17 @@
+import { DrugAndDropComponent } from './shared/drug-and-drop/drug-and-drop.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-// Angular sdk
-import { DragDropModule } from '@angular/cdk/drag-drop';
-
-// Components
-import { UiLibComponent } from './ui-lib.component';
+import { PipesModule } from './pipes/pipes.module';
+import { DirectivesModule } from './directives/directives.module';
 
 @NgModule({
-  declarations: [
-    UiLibComponent
-  ],
+  declarations: [DrugAndDropComponent],
   imports: [
     CommonModule,
-    DragDropModule,
+    PipesModule,
+    DirectivesModule,
   ],
-  exports: [
-    UiLibComponent
-  ]
+  exports: [DrugAndDropComponent],
 })
 export class UiLibModule { }

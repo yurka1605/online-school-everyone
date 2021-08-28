@@ -1,0 +1,31 @@
+@use "sass:map";
+$is-dark-theme: false !default;
+$main-padding: 16px !default;
+$main-font-size: 16px !default;
+$main-font-family: 'Roboto', sans-serif !default;
+$main--primary-color: #000000 !default;
+
+@if $is-dark-theme {
+  $is-dark-theme: false !default;
+  $main-padding: 16px !default;
+  $main-font-size: 16px !default;
+  $main-font-family: 'Roboto', sans-serif !default;
+  $main--primary-color: #000000 !default;
+}
+
+
+
+/*** IMPORTED FILE NOT FOUND ***/
+@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap';/*** --- ***/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: $main-font-size;
+  font-family: $main-font-family;
+  font-weight: 400;
+}

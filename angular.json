@@ -35,7 +35,8 @@
               "projects/app/src/assets"
             ],
             "styles": [
-              "projects/app/src/styles.scss"
+              "projects/app/src/styles.scss",
+              "dist/ui-lib/assets/main.styles.scss"
             ],
             "scripts": []
           },

@@ -23,7 +23,6 @@ import { HttpInterceptorProviders } from '@app/http-interceptors';
 
 // Reducers
 import { reducers, metaReducers } from '@app/store/reducers';
-import { UiLibModule } from '@ui-lib';
 
 // Services
 
@@ -40,7 +39,6 @@ import { UiLibModule } from '@ui-lib';
     StoreModule.forRoot(reducers, {metaReducers}),
     EffectsModule.forRoot([]),
     CoreModule,
-    UiLibModule,
   ],
   providers: [
     ...HttpInterceptorProviders,
