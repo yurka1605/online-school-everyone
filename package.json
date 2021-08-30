@@ -2,7 +2,7 @@
   "name": "online-school-everyone",
   "version": "0.0.0",
   "scripts": {
-    "prepare": "npm install --save-dev npm-run-all husky scss-bundle",
+    "prepare": "npm install --save-dev npm-run-all husky@4 scss-bundle",
     "prepare:start": "npm-run-all -s check-engines build:ui-lib",
     "check-engines": "check-node-version --package -p",
     "lint": "npm-run-all -s lint:app lint:landing lint:docs lint:ui-lib",
@@ -72,7 +72,7 @@
     "@typescript-eslint/parser": "4.23.0",
     "eslint": "^7.26.0",
     "eslint-plugin-ngrx": "^1.0.0",
-    "husky": "^7.0.2",
+    "husky": "^4.3.8",
     "jasmine-core": "~3.7.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
