@@ -2,7 +2,7 @@
   "name": "online-school-everyone",
   "version": "0.0.0",
   "scripts": {
-    "prepare": "npm install --save-dev npm-run-all husky scss-bundle && npx husky install",
+    "prepare": "npm install --save-dev npm-run-all husky scss-bundle",
     "prepare:start": "npm-run-all -s check-engines build:ui-lib",
     "check-engines": "check-node-version --package -p",
     "lint": "npm-run-all -s lint:app lint:landing lint:docs lint:ui-lib",
@@ -74,10 +74,13 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "lint-staged": "^11.1.2",
     "ng-packagr": "^12.1.0",
     "npm-run-all": "^4.1.5",
     "parallelshell": "^3.0.2",
     "scss-bundle": "^3.1.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0",
     "typescript": "~4.3.5"
   }
 }
