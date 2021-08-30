@@ -2,7 +2,7 @@
   "name": "online-school-everyone",
   "version": "0.0.0",
   "scripts": {
-    "prepare": "npm install npm-run-all husky scss-bundle",
+    "prepare": "npm install --save-dev npm-run-all husky scss-bundle && npx husky install",
     "prepare:start": "npm-run-all -s check-engines build:ui-lib",
     "check-engines": "check-node-version --package -p",
     "lint": "npm-run-all -s lint:app lint:landing lint:docs lint:ui-lib",
@@ -49,7 +49,6 @@
     "angular-in-memory-web-api": "^0.11.0",
     "check-node-version": "^4.1.0",
     "rxjs": "~6.6.0",
-    "scss-bundle": "^3.1.2",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },
@@ -78,6 +77,7 @@
     "ng-packagr": "^12.1.0",
     "npm-run-all": "^4.1.5",
     "parallelshell": "^3.0.2",
+    "scss-bundle": "^3.1.2",
     "typescript": "~4.3.5"
   },
   "husky": {
