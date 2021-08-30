@@ -5,6 +5,7 @@
     "prepare:start": "npm-run-all -s check-engines build:ui-lib",
     "check-engines": "check-node-version --package -p",
     "lint": "npm-run-all -s lint:app lint:landing lint:docs lint:ui-lib",
+    "test": "npm-run-all -s test:app test:landing test:docs test:ui-lib",
     "start": "npm-run-all -s prepare:start start:app",
     "start:app": "ng serve app",
     "build:app": "ng build app",
@@ -65,6 +66,7 @@
     "@typescript-eslint/parser": "4.23.0",
     "eslint": "^7.26.0",
     "eslint-plugin-ngrx": "^1.0.0",
+    "husky": "^7.0.2",
     "jasmine-core": "~3.7.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -75,5 +77,10 @@
     "npm-run-all": "^4.1.5",
     "parallelshell": "^3.0.2",
     "typescript": "~4.3.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "ng test && ng lint"
+    }
   }
 }
