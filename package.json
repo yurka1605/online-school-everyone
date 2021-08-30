@@ -29,6 +29,11 @@
     "build-scss-bundle:ui-lib": "scss-bundle --config ./projects/ui-lib/scss-bundle.config.json"
   },
   "private": true,
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test && lint-staged"
+    }
+  },
   "engines": {
     "node": ">=12.0.0",
     "npm": "^6.14.0 || ^7.6.0"
