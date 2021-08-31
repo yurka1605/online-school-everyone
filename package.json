@@ -2,14 +2,14 @@
   "name": "online-school-everyone",
   "version": "0.0.0",
   "scripts": {
-    "preinstall": "npm install --save-dev npm-run-all scss-bundle husky",
+    "preinstall": "npm install --save-dev npm-run-all scss-bundle husky stylelint stylelint-config-sass-guidelines",
     "postinstall": "husky install && npm run create-git-hooks",
     "prepare:start": "npm-run-all -s check-engines build:ui-lib",
-    "create-git-hooks": "husky add .husky/pre-commit \"npx lint-staged && npm test\"",
+    "create-git-hooks": "husky add .husky/pre-commit \"npm run test && npm run lint && npx stylelint\"",
     "check-engines": "check-node-version --package -p",
     "start": "npm run prepare:start && npm run start:app",
     "lint": "ng lint app && ng lint landing && ng lint docs && ng lint ui-lib",
-    "test": "ng test app --no-watch && ng test landing --no-watch && ng test docs --no-watch && ng test ui-lib --no-watch",
+    "test": "ng test app && ng test landing && ng test docs && ng test ui-lib",
     "start:app": "ng serve app",
     "build:app": "ng build app",
     "start:docs": "npm-run-all -s prepare:start && ng serve docs",
@@ -24,10 +24,6 @@
     "build-scss-bundle:ui-lib": "scss-bundle --config ./projects/ui-lib/scss-bundle.config.json"
   },
   "private": true,
-  "lint-staged": {
-    "*.{js,ts}": "npm lint",
-    "*.{css,scss}": "npm run lint-css"
-  },
   "engines": {
     "node": ">=12.0.0",
     "npm": "^6.14.0 || ^7.6.0"
@@ -73,13 +69,11 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
-    "lint-staged": "^11.1.2",
     "ng-packagr": "^12.1.0",
     "npm-run-all": "^4.1.5",
-    "parallelshell": "^3.0.2",
     "scss-bundle": "^3.1.2",
     "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^22.0.0",
+    "stylelint-config-sass-guidelines": "^8.0.0",
     "typescript": "~4.3.5"
   }
 }

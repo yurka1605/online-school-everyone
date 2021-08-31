@@ -52,7 +52,7 @@
         "plugin:@angular-eslint/template/recommended"
       ],
       "rules": {
-        "modules": true
+        "modules": 0
       }
     }
   ]
