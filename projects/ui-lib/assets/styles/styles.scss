@@ -1,17 +1,17 @@
-@use "sass:map";
+@use 'sass:map';
 @import './utils/variables';
 @import './utils/mixins';
 
 @import 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap';
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
-  font-size: $main-font-size;
   font-family: $main-font-family;
+  font-size: $main-font-size;
   font-weight: 400;
 }

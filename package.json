@@ -5,7 +5,7 @@
     "preinstall": "npm install --save-dev npm-run-all scss-bundle husky stylelint stylelint-config-sass-guidelines",
     "postinstall": "husky install && npm run create-git-hooks",
     "prepare:start": "npm-run-all -s check-engines build:ui-lib",
-    "create-git-hooks": "husky add .husky/pre-commit \"npm run test && npm run lint && npx stylelint\"",
+    "create-git-hooks": "husky add .husky/pre-commit \"npm run test && npm run lint && npx stylelint '**/*.scss'\"",
     "check-engines": "check-node-version --package -p",
     "start": "npm run prepare:start && npm run start:app",
     "lint": "ng lint app && ng lint landing && ng lint docs && ng lint ui-lib",
