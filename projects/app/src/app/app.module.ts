@@ -1,28 +1,21 @@
-// Angular
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { BrowserModule } from '@angular/platform-browser';
-
-// NgRX
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-// Modules
 import { AppRoutingModule } from './app-routing.module';
-import { CoreModule } from '@app-core/core.module';
+import { CoreModule } from '@app/core/core.module';
 
-// Components
 import { AppComponent } from '@app/app.component';
 
-// Services
-import { InMemoryDataServiceService } from './shared/services/api/in-memory-data-service.service';
+import { InMemoryDataService } from './shared/services/api/in-memory-data-service.service';
 
-// Interceptors
 import { HttpInterceptorProviders } from '@app/http-interceptors';
 
-// Reducers
-import { reducers, metaReducers } from '@app/store/reducers';
+import { AppEffects, reducers, metaReducers } from '@app/store';
 
 // Services
 
@@ -33,12 +26,30 @@ import { reducers, metaReducers } from '@app/store/reducers';
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataServiceService,
+      InMemoryDataService,
       { dataEncapsulation: false }
     ),
-    StoreModule.forRoot(reducers, {metaReducers}),
-    EffectsModule.forRoot([]),
+    StoreModule.forRoot(
+      reducers,
+      {
+        metaReducers,
+        runtimeChecks: {
+          strictStateImmutability: true,
+          strictActionImmutability: true,
+          strictStateSerializability: true,
+          strictActionSerializability: true,
+          strictActionWithinNgZone: true,
+          strictActionTypeUniqueness: true,
+        },
+      },
+    ),
+    EffectsModule.forRoot(AppEffects),
     CoreModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      // logOnly: environment.production,
+      // autoPause: true,
+    }),
   ],
   providers: [
     ...HttpInterceptorProviders,

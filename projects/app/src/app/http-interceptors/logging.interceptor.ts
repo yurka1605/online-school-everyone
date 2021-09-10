@@ -6,7 +6,7 @@ import {
   HttpResponse
 } from '@angular/common/http';
 import { finalize, tap } from 'rxjs/operators';
-import { MessageService } from '@app-core/services/message.service';
+import { MessageService } from '@app/core/services/message.service';
 import { MessageTypes } from '@app/app.constant';
 
 @Injectable()

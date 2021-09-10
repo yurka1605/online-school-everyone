@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AppState, fromToken } from '@app/store';
+import { Store } from '@ngrx/store';
+import { Router } from '@angular/router';
+import { ThemeService } from '@app/shared/services/theme/theme.service';
+import { Themes } from '@ui-lib';
 
 @Component({
   selector: 'app-auth',
@@ -7,8 +12,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthComponent implements OnInit {
 
-  constructor() { }
+  isAuth$ = this.store.select(fromToken.selectAuthetification);
 
-  ngOnInit(): void {console.log('auth-work')}
+  constructor(
+    private readonly store: Store<AppState>,
+    private router: Router,
+    private themeService: ThemeService,
+  ) { }
+
+  ngOnInit(): void {
+    this.isAuth$.subscribe(isAuth => isAuth ? this.router.navigate(['']) : null);
+  }
+
+  auth() {
+    this.themeService.changeAppTheme(Themes.Dark);
+    this.store.dispatch(fromToken.getToken());
+  }
 
 }
+

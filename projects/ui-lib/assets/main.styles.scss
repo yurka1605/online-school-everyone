@@ -1,22 +1,21 @@
-@use 'sass:map';
-$is-dark-theme: false !default;
 $main-padding: 16px !default;
 $main-font-size: 16px !default;
 $main-font-family: 'Roboto', sans-serif !default;
-$main--primary-color: #000 !default;
 
-@if $is-dark-theme {
-  $is-dark-theme: false !default;
-  $main-padding: 16px !default;
-  $main-font-size: 16px !default;
-  $main-font-family: 'Roboto', sans-serif !default;
-  $main-primary-color: #000 !default;
+$main-primary-color: var(--main-primary-color) !default;
+$main-secondary-color: var(--main-secondary-color) !default;
+$main-three-color: var(--main-three-color) !default;
+$main-primary-text-color: var(--main-primary-text-color) !default;
+
+@mixin corner-icon($name, $top-or-bottom, $left-or-right) {
+  .icon-#{$name} {
+    background-image: url("/icons/#{$name}.svg");
+    position: absolute;
+    #{$top-or-bottom}: 0;
+    #{$left-or-right}: 0;
+  }
 }
 
-
-
-/*** IMPORTED FILE NOT FOUND ***/
-@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap';/*** --- ***/
 
 * {
   box-sizing: border-box;
@@ -28,4 +27,6 @@ body {
   font-family: $main-font-family;
   font-size: $main-font-size;
   font-weight: 400;
+  color: $main-primary-text-color;
+  background-color: $main-three-color;
 }

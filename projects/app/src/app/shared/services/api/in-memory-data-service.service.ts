@@ -5,14 +5,17 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class InMemoryDataServiceService implements InMemoryDbService {
+export class InMemoryDataService implements InMemoryDbService {
 
   constructor() { }
 
-  createDb(reqInfo?: RequestInfo): {} | Observable<{[key: string]: any}> | Promise<{}> {
+  createDb(): {} | Observable<{[key: string]: any}> | Promise<{}> {
     const users = [
-      {firstName: '', lastName: ''}
+      {firstName: 'Iurii', lastName: 'Litvinov'}
     ];
-    return {users};
+    return {
+      users,
+      login: 'mytokenthebest',
+    };
   }
 }

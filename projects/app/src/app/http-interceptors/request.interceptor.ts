@@ -3,11 +3,13 @@ import {
   HttpEvent,
   HttpInterceptor,
   HttpHandler,
-  HttpRequest
+  HttpRequest,
+  HttpHeaders,
+  HttpParams
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { AuthService } from '@app-core/services/auth.service';
+import { AuthService } from '@app/core/services/auth.service';
 import { BASE_API_URL } from '@app/app.constant';
 
 @Injectable()
@@ -16,12 +18,18 @@ export class RequestInterceptor implements HttpInterceptor {
   constructor(private auth: AuthService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const authToken = this.auth.getAuthorizationToken();
-    const authReq = req.clone({
-      headers: req.headers.set('Authorization', authToken),
+    const newReq: {
+      headers?: HttpHeaders,
+      params?: HttpParams,
+      url: string,
+    } = {
       url: `${BASE_API_URL}${req.url}`
-    });
+    };
 
-    return next.handle(authReq);
+    if (!req.url.match('login')) {
+      newReq.headers = req.headers.set('Authorization', this.auth.getAuthorizationToken());
+    }
+
+    return next.handle(req.clone(newReq));
   }
 }

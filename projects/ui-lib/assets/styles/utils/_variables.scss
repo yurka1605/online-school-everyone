@@ -1,13 +1,8 @@
-$is-dark-theme: false !default;
 $main-padding: 16px !default;
 $main-font-size: 16px !default;
 $main-font-family: 'Roboto', sans-serif !default;
-$main-primary-color: #000 !default;
 
-@if $is-dark-theme {
-  $is-dark-theme: false !default;
-  $main-padding: 16px !default;
-  $main-font-size: 16px !default;
-  $main-font-family: 'Roboto', sans-serif !default;
-  $main-primary-color: #000 !default;
-}
+$main-primary-color: var(--main-primary-color) !default;
+$main-secondary-color: var(--main-secondary-color) !default;
+$main-three-color: var(--main-three-color) !default;
+$main-primary-text-color: var(--main-primary-text-color) !default;

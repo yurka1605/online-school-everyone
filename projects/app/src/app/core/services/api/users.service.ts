@@ -26,7 +26,7 @@ export class UsersService {
   ) {}
 
   getUsers(): Observable<INewUser[]> {
-    return this.http.get<INewUser[]>(API_URLS.GET_USERS)
+    return this.http.get<INewUser[]>(API_URLS.GET.USERS)
       .pipe(
         catchError(err => EMPTY)
       );

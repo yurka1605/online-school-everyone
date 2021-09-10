@@ -4,7 +4,7 @@
 
 export const environment =  Object.freeze({
   production: false,
-  BASE_API_URL: 'https://api.github.com/',
+  BASE_API_URL: '/',
 });
 
 /*

@@ -6,11 +6,7 @@ import { PageNotFoundComponent } from './core/pages/main/page-not-found/page-not
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'about', pathMatch: 'full'},
-  {
-    path: 'about',
-    loadChildren: () => import('./about/about.module').then(m => m.AboutModule),
-  },
+  { path: '', redirectTo: 'main', pathMatch: 'full'},
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),

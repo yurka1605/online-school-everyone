@@ -1,6 +1,11 @@
 /*
  * Public API Surface of ui-lib
  */
+export * from './lib/models';
+export * from './lib/shared';
+export * from './lib/directives';
+export * from './lib/pipes';
 
-export * from './lib/ui-lib.module';
-export * from './lib/shared/drug-and-drop/drug-and-drop.component';
+// Custom modules
+export * from './lib/modules/auth-form';
+export * from './lib/modules/themes-swithcer';

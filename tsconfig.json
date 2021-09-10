@@ -23,11 +23,6 @@
     "paths": {
       // application
       "@app/*": ["projects/app/src/app/*"],
-      "@app-about/*": ["projects/app/src/app/about/*"],
-      "@app-auth/*": ["projects/app/src/app/auth/*"],
-      "@app-core/*": ["projects/app/src/app/core/*"],
-      "@app-shared/*": ["projects/app/src/app/shared/*"],
-      "@app-store/*": ["projects/app/src/app/store/*"],
 
       // landing
       "@landing/*": ["projects/landing/src/app/*"],

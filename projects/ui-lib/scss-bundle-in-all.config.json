@@ -1,0 +1,8 @@
+{
+  "bundlerOptions": {
+    "entryFile": "./projects/ui-lib/assets/dark.css",
+    "rootDir": "./projects/ui-lib/assets",
+    "outFile": "./projects/app/src/assets/main.dark.css",
+    "logLevel": "silent"
+  }
+}

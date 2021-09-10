@@ -1,6 +1,6 @@
 import { environment } from "../environments/environment";
 
-export const  BASE_API_URL = environment.BASE_API_URL;
+export const BASE_API_URL = environment.BASE_API_URL;
 
 export enum MessageTypes {
   Error = 'ERROR',
@@ -22,7 +22,21 @@ export enum KeyboardKeys {
 };
 
 export const API_URLS: {
-  GET_USERS: string,
+  GET: IGetRequests,
+  POST: IPostRequests,
 } = Object.freeze({
-  GET_USERS: `users`,
+  GET: {
+    USERS: 'api/users',
+  },
+  POST: {
+    LOGIN: 'api/login',
+  }
 });
+
+interface IGetRequests {
+  USERS: string;
+}
+
+interface IPostRequests {
+  LOGIN: string;
+}
